@@ -1,0 +1,166 @@
+﻿
+@{
+    ViewData["Title"] = "IlanVer";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+@section head{
+    <link href="/Content/Metarial-Dizayn/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="/Content/Metarial-Dizayn/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <script src="~/Content/Metarial-Dizayn/js/jquery-1.10.0.min.js"></script>
+
+}<div class="col-md-6"></div>
+@model EmlakCore.Web.Models.EmlakIlanVerModel
+<div class="container-fluid">
+    <form asp-controller="Musteri" asp-action="IlanVer" method="post">
+        <div class="block-header">
+            <h2>Basic Emlak</h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="body">
+                        <h2 class="card-inside-title">Emlak Özellik</h2>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" placeholder="Oda Saysı"  asp-for="OdaSayisi" required="required">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" placeholder="Metrekare" asp-for="Metrekare" required="required">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" placeholder="Fiyat" required="required" asp-for="Fiyat">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control"  placeholder="Kat" asp-for="Kat" required="required">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <select class="form-control show-tick" asp-for="Tip">
+                                        <option value="Kiralık">Kiralık</option>
+                                        <option value="Satılık">Satılık</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="card-inside-title">Emlak Adres</h2>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" placeholder="Bulunduğu İl" asp-for="AdresIl" required="required">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control"  placeholder="Bulunduğu İlçe" asp-for="AdresIlce" required="required">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="card-inside-title">Adres Detay</h2>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <span></span>
+                                    <div class="form-line">
+                                        <textarea rows="4" class="form-control no-resize" placeholder="Adres Detayı" maxlength="1500" minlength="20" asp-for="AdresDetay" required="required"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            Emlak Türü
+                            <small>Gayrimenkülünüzün türünü seçin </small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <select class="form-control" asp-for="EmlakTuru">
+                                    @foreach (var item in Model.EmlakTurleri)
+                                    {
+                                        <option value="@item.EmlakTurID">@item.EmlakTurAdi</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select class="form-control show-tick" asp-for="IsinmaTuru">
+                                    <option >Isınma Türü</option>
+                                    <option >Yok</option>
+                                    <option >Sobalı</option>
+                                    <option>kalorifer</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>       
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <button type="submit" class="btn bg-orange waves-effect">
+                    <i class="material-icons">save</i>
+                    <span>Kaydet</span>
+                </button>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<br />
+<br />
+<br />
+<br />
+@section deneme{
+
+    <script src="/Content/Metarial-Dizayn/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="/Content/Metarial-Dizayn/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+}
+
+
+
+
+

@@ -1,0 +1,16 @@
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.Business.deps.json
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.Business.dll
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.Business.pdb
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\obj\Debug\netcoreapp3.1\EmlakCore.Business.csproj.AssemblyReference.cache
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\obj\Debug\netcoreapp3.1\EmlakCore.Business.AssemblyInfoInputs.cache
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\obj\Debug\netcoreapp3.1\EmlakCore.Business.AssemblyInfo.cs
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\obj\Debug\netcoreapp3.1\EmlakCore.Business.csproj.CoreCompileInputs.cache
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\obj\Debug\netcoreapp3.1\EmlakCore.Business.dll
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\obj\Debug\netcoreapp3.1\EmlakCore.Business.pdb
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.Core.dll
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.Entities.dll
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.Entities.pdb
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.Core.pdb
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\obj\Debug\netcoreapp3.1\EmlakCore.Business.csproj.CopyComplete
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.DataAccsess.dll
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Business\bin\Debug\netcoreapp3.1\EmlakCore.DataAccsess.pdb

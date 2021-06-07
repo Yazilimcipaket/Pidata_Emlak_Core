@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "KayitOl";
+    Layout = "~/Views/_Layout.cshtml";
+}
+@model EmlakCore.Web.Models.YetkiliKayitOlModel
+<section class="breadcrumb-section spad set-bg" data-setbg="/Content/Aler-Master/img/breadcrumb-bg.jpg" style="background-image: url(&quot;img/breadcrumb-bg.jpg&quot;);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h4>Yetkili Kayıt</h4>
+                    <div class="bt-option">
+                        <a href="#"><i class="fa fa-home"></i> Yetkili</a>
+                        <span>Kayıt ol</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="property-submit-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2"><h4>Kayıt Ol</h4></div>
+                    <div class="col-lg-5"></div>
+                </div>
+                <br />
+                <br />
+
+                <div class="property-submit-form">
+                    <form asp-controller="Admin" asp-action="KayitOl" method="post">
+                        <div class="pf-map">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="map-inputs">
+                                        <input type="text" placeholder="Eposta" asp-for="Eposta">
+                                        <input type="password" placeholder="Şifre" asp-for="Sifre">
+                                        <input type="password" placeholder="Şifre Tekrar" asp-for="SifreTekrar">
+                                        <input type="text" placeholder="Ad" asp-for="YetkiliAd">
+                                        <input type="text" placeholder="Soyad" asp-for="YetkiliSoyad">
+                                        <input type="text" placeholder="Telefon No" asp-for="TelefonNo">
+                                        <input type="text" placeholder="İşyeri Adı" asp-for="IsyeriAdi">
+                                        <input type="text" placeholder="Il" asp-for="AdresIl">
+                                        <input type="text" placeholder="Ilçe" asp-for="AdresIlce">
+                                        <input type="text" placeholder="Adres Detay" asp-for="AdresDetay">
+                                        <p>Giriş için <a href="/AnaSayfa/GirisYap">tıklayın</a></p>
+                                    </div>
+                                    <button type="submit" class="site-btn">Kayıt</button>
+                                </div>
+                                <div class="col-lg-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

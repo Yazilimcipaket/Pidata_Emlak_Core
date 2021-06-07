@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Ilanlar";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+
+@section head{
+    <link href="~/Content/Admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="/Content/Admin/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+}
+@model List<EmlakCore.Web.Models.EmlaklarModel>
+<div class="container-fluid">
+    <div class="block-header">
+        <h2>
+            Emlak İlanları
+        </h2>
+    </div>
+    <!-- Exportable Table -->
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Emlakl İlanları
+                    </h2>
+
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                            <thead>
+                                <tr>
+                                    <th>Fiyat</th>
+                                    <th>Il</th>
+                                    <th>Ilçe</th>
+                                    <th>Adre-Detay</th>
+                                    <th>Emlak Türü</th>
+                                   <th>İlan Sahibi</th>
+                                    <th>İlan Sahibi Telefonu</th>
+                                    <th>Kat</th>
+                                    <th>M²</th>
+                                    <th>Odasayısı</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Fiyat</th>
+                                    <th>Il</th>
+                                    <th>Ilçe</th>
+                                    <th>Adre-Detay</th>
+                                    <th>Emlak Türü</th>
+                                    <th>İlan Sahibi</th>
+                                    <th>İlan Sahibi Telefonu</th>
+                                    <th>Kat</th>
+                                    <th>M²</th>
+                                    <th>Odasayısı</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">@item.Fiyat</td>
+                                        <td>@item.AdresIl</td>
+                                        <td>@item.AdresIlce</td>
+                                        <td>@item.AdresDetay</td>
+                                        <td>@item.EmlakTuru</td>
+                                        <td>@item.IlanSahibiAdi @item.IlanSahibiSoyadi</td>
+                                        <td>@item.IlanSahibiTelefonu</td>
+                                        <td>@item.Kat</td>
+                                        <td>@item.MetreKare</td>
+                                        <td>@item.OdaSayisi</td>
+                                        <td id=""><a class="emlakSil" data-val=""><i class="material-icons">delete_forever</i></a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section deneme{
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="~/Content/Metarial-Dizayn/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <script src="~/Content/Metarial-Dizayn/js/pages/tables/jquery-datatable.js"></script>
+    <script src="/Content/Metarial-Dizayn/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="/Content/Metarial-Dizayn/js/pages/ui/dialogs.js"></script>
+}
+
+

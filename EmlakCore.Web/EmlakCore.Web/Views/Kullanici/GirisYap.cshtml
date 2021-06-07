@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "GirisYap";
+    Layout = "~/Views/_Layout.cshtml";
+}
+@model EmlakCore.Web.Models.GirisYapModel
+<section class="breadcrumb-section spad set-bg" data-setbg="/Content/Aler-Master/img/breadcrumb-bg.jpg" style="background-image: url(&quot;img/breadcrumb-bg.jpg&quot;);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h4>AnaSayfa Giriş</h4>
+                    <div class="bt-option">
+                        <a href="#"><i class="fa fa-home"></i> AnaSayfa</a>
+                        <span>Giriş</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="property-submit-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2"><h4>Giriş Yap</h4></div>
+                    <div class="col-lg-5"></div>
+                </div>
+                <br />
+                <br />
+
+                <div class="property-submit-form">
+                    <form asp-controller="Kullanici" asp-action="GirisYap" method="post">
+                        <div class="pf-map">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="map-inputs">
+                                        <input type="email" placeholder="Eposta" asp-for="Eposta" required="required">
+                                        <input type="password" placeholder="Şifre" asp-for="Sifre" required="required">
+                                        <p>Kayıt için <a href="/Musteri/KayitOl">tıklayın</a></p>
+                                    </div>
+                                    <button type="submit" class="site-btn">Giriş</button>
+                                </div>
+                                <div class="col-lg-4">
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

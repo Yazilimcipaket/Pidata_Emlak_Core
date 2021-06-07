@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "EmlakAra";
+    Layout = "~/Views/_Layout.cshtml";
+}
+@model List<EmlakCore.Web.Models.EmlaklarModel>
+<section class="property-section latest-property-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-title">
+                    @{
+                        if (Model.Count != 0)
+                        {
+                            <h4>Bulunan İlanlar</h4>
+                        }
+                        else
+                        {
+                            <h4>Aradığınız ilan Bulunamadı!</h4>
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="property-controls">
+                    <ul>
+                        <li data-filter="all">Hepsi</li>
+                        <li data-filter=".apart">Konut</li>
+                        <li data-filter=".house">Ticari</li>
+                        <li data-filter=".office">Sanayi</li>
+                        <li data-filter=".hotel">Arazi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row property-filter">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 mix Hepsi @item.EmlakTuru">
+                    <div class="property-item">
+                        <div class="pi-pic set-bg" data-setbg="@item.Resimler.FirstOrDefault()">
+                            @{
+                                if (item.Kiralik)
+                                {
+                                    <div class="label">Kiralık</div>
+                                }
+                                else
+                                {
+                                    <div class="label">Satılık</div>
+                                }
+                            }
+
+                        </div>
+                        <div class="pi-text">
+                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                            <div class="pt-price">$ @item.Fiyat</div>
+                            <h5><a href="#">@item.AdresIl @item.AdresIlce</a></h5>
+                            <p><span class="icon_pin_alt"></span>@item.AdresDetay</p>
+                            <ul>
+                                <li><i class="fa fa-object-group"></i> @item.MetreKare</li>
+                                <li><i class="fa fa-bathtub"></i> 03</li>
+                                <li><i class="fa fa-bed"></i> @item.OdaSayisi</li>
+                                <li><i class="fa fa-automobile"></i> 01</li>
+                            </ul>
+                            <div class="pi-agent">
+                                <div class="pa-item">
+                                    <div class="pa-info">
+
+                                        <h6>@item.IlanSahibiAdi @item.IlanSahibiSoyadi</h6>
+                                    </div>
+                                    <div class="pa-text">
+                                        @item.IlanSahibiTelefonu
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+       
+       <a class="site-btn" href="/Musteri/EmlakSonucCikti">Yazdır/Pdf/Exel/Csv</a>
+    </div>
+</section>
+

@@ -1,0 +1,248 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>EmlakCore |Admin</title>
+    <!-- Favicon-->
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="PP.EmlakCore Mağaza Giriş">
+    <meta name="keywords" content="EmlakCore Mağaza Giriş,Mağaza Giriş,PP.EmlakCore,Tedarikçi Giriş,Aracı Girii">
+
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon">
+    <meta name="google-site-verification" content="SAEA2WRlRjuwDEu9gQrzjsApEwRCq71Z4C3WacNRf-o" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="/Content/Metarial-Dizayn/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="/Content/Metarial-Dizayn/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="/Content/Metarial-Dizayn/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="/Content/Metarial-Dizayn/plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="/Content/Metarial-Dizayn/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="/Content/Metarial-Dizayn/css/themes/all-themes.css" rel="stylesheet" />
+
+    @RenderSection("head", false)
+</head>
+
+<body class="theme-red">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Lütfen Bekleyin...</p>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="Site içinde arama yapın">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="navbar-brand">EmlakCore - ADMİN</a>
+                    }
+                    else
+                    {
+                        <a class="navbar-brand">EmlakCore - Çıktı Al</a>
+                    }
+                }
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="/Content/Metarial-Dizayn/images/user.png" width="48" height="48" alt="User" />
+
+
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @*@User.Claims.FirstOrDefault(x => x.Type == "AdSoyad").Value*@
+                    </div>
+                    <div class="email">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @User.Claims.FirstOrDefault(x => x.Type == "Eposta").Value
+                        }
+
+                    </div>
+                    <div class="btn-group user-helper-dropdown">
+
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="/Musteri/Index"><i class="material-icons"></i></a></li>
+                                    <li><a href="/Musteri/CikisYap"><i class="material-icons"></i></a></li>
+                                </ul>
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">Seçenekler</li>
+
+                    @{
+                        if (User.IsInRole("Musteri"))
+                        {
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">text_fields</i>
+                                    <span>Emlak</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="/Musteri/IlanVer">
+                                            <span>İlan Ver</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Musteri/Ilanlarım" target="_blank">
+                                            <span>İlanlarım</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else if (User.IsInRole("Yetkili"))
+                        {
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">text_fields</i>
+                                    <span>Emlak</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="/Admin/Ilanlar">
+                                            <span>İlanlar</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; <a href="javascript:void(0);">EmlakCore Tüm Hakları Saklıdır</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.4
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+
+    </section>
+
+    <section class="content">
+        @if (TempData["Mesaj"] != null)
+        {
+            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper">
+                <div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+                    <div class="alert alert-danger" id="kt_content" role="alert">@TempData["Mesaj"]</div>
+                </div>
+            </div>
+        }
+        @RenderBody()
+    </section>
+    <script src="/Content/Metarial-Dizayn/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="/Content/Metarial-Dizayn/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="/Content/Metarial-Dizayn/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="/Content/Metarial-Dizayn/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="/Content/Metarial-Dizayn/plugins/node-waves/waves.js"></script>
+
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="/Content/Metarial-Dizayn/plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="/Content/Metarial-Dizayn/plugins/raphael/raphael.min.js"></script>
+    <script src="/Content/Metarial-Dizayn/plugins/morrisjs/morris.js"></script>
+
+
+    @RenderSection("deneme", false)
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="/Content/Metarial-Dizayn/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="/Content/Metarial-Dizayn/js/admin.js"></script>
+
+    <script src="/Content/Metarial-Dizayn/js/pages/index.js"></script>
+
+    <!-- Demo Js -->
+    <script src="/Content/Metarial-Dizayn/js/demo.js"></script>
+    @RenderSection("deneme2", false)
+</body>
+
+</html>

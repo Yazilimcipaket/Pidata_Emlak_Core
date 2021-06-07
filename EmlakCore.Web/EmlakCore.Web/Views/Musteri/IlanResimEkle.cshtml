@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewData["Title"] = "IlanResimEkle";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+@section head{
+    <link href="/Content/Metarial-Dizayn/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <script src="~/Content/Metarial-Dizayn/js/jquery-1.10.0.min.js"></script>
+}
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        @*@Model.Urun.UrunUstBaslik*@
+                        <small>Silmek isteğiniz resmin üstüne tıklayın!</small>
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                </div>
+                @*<div class="body">
+                    <div class="row">
+                        @foreach (var item in Model.Resim)
+                        {
+                            <div class="col-xs-6 col-md-3">
+                                <a href="javascript:void(0);" class="thumbnail">
+
+                                    <img src="@item.ResimYol" class="img-responsive" style="width:500px;height:300px">
+
+                                </a>
+
+                                <a href="/Urun/ResimSil?publicId=@item.PublicId&&urunID=@Model.Urun.UrunID" style="margin-right:120px;" class="btn btn-danger waves-effect" role="button">Sil</a>
+                                @if (Model.UrunSecenek != null)
+                                {
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            @Model.UrunSecenek.SecenekAdi <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            @foreach (var secenekDeger in Model.UrunSecenek.SecenekDegerleri)
+                                            {
+                                                <li id="@secenekDeger.SecenekDegerID"><a href="javascript:void(0);" data-secenekID="@secenekDeger.SecenekDegerID" data-resimYol="@item.ResimYol" data-urunID="@Model.Urun.UrunID" class="waves-effect waves-block secenekResimEkle">@secenekDeger.DegerAdi</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+
+
+                            </div>
+                        }
+
+
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Sürükle Bırak veya Tıkla
+
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                           
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <form asp-action="IlanResimEkle" asp-controller="Musteri" id="frmFileUpload" class="dropzone dz-clickable" method="post" enctype="multipart/form-data">
+                        <div class="dz-message">
+                            <div class="drag-icon-cph">
+                                <i class="material-icons">touch_app</i>
+                            </div>
+                            <h3>Resmi sürükleyip bırakın veya tıklayın</h3>
+                            <em>(!Eklenen resim buradan <strong>silinemez</strong>)</em>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section deneme{
+
+    <script src="/Content/Metarial-Dizayn/plugins/dropzone/dropzone.js"></script>
+    <script src="/Content/Metarial-Dizayn/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+}
+
+
+

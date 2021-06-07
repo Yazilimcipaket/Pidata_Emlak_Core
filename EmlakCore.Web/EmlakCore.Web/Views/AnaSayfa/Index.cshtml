@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+@model EmlakCore.Web.Models.AnaSayfaModel
+
+@section head{
+    <script src="~/Content/jquery-1.10.0.min.js"></script>
+    <script>
+        $(document).ready(function myfunction() {
+            $(".kiralik").click(function myfunction() {
+                $("#kiralik").val("true")
+            });
+            $(".satilik").click(function myfunction() {
+                $("#kiralik").val("false")
+            });
+        });
+    </script>
+
+}
+<section class="hero-section">
+    <div class="container">
+        <div class="hs-slider owl-carousel">
+
+            @foreach (var item in Model.Emlaklar)
+            {
+                <div class="hs-item set-bg" data-setbg="@item.Resimler.FirstOrDefault()">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hc-inner-text">
+                                <div class="hc-text">
+                                    <h4>@item.AdresIl @item.AdresIlce</h4>
+                                    <p><span class="icon_pin_alt"></span> @item.AdresDetay</p>
+                                    @{
+                                        if (item.Kiralik)
+                                        {
+                                            <div class="label">Kiralık</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="label">Satılık</div>
+                                        }
+                                    }
+
+                                    <h5>$ @item.Fiyat</h5>
+                                </div>
+                                <div class="hc-widget">
+                                    <ul>
+                                        <li><i class="fa fa-object-group"></i> @item.MetreKare</li>
+                                        <li><i class="fa fa-bathtub"></i> 01</li>
+                                        <li><i class="fa fa-bed"></i> @item.OdaSayisi</li>
+                                        <li><i class="fa fa-automobile"></i> 01</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Search Section Begin -->
+<section class="search-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="section-title">
+                    <h4>Nerede yaşamak isterseniz?</h4>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="change-btn">
+                    <div class="cb-item">
+                        <label for="cb-rent" class="active kiralik">
+                            Kiralık
+                            <input type="radio" id="cb-rent">
+                        </label>
+                    </div>
+                    <div class="cb-item">
+                        <label for="cb-sale" class="satilik">
+                            Satılık
+                            <input type="radio" id="cb-sale">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="property-submit-form search-form-content">
+            <form class="filter-form" asp-controller="Emlak" asp-action="EmlakAra" method="post">
+
+                <div class="pf-location">
+                    <div class="location-inputs">
+                        <select class="sm-width" name="EmlakTuru">
+                            @foreach (var item in Model.EmlakTurleri)
+                            {
+                                <option value="@item.EmlakTurID">@item.EmlakTurAdi</option>
+                            }
+
+
+                        </select>
+                        <input type="text" placeholder="Şehir" name="Il">
+                        <input type="text" placeholder="İlçe" name="Ilce" />
+                        <input type="text" placeholder="Posta Kod" name="PotaKod">
+
+                        <div class="room-size-range-wrap sm-width">
+                            <div class="price-text">
+                                <label for="roomsizeRange">MetreKare:</label>
+                                <input type="text" id="roomsizeRange" readonly name="Metrekare">
+                            </div>
+                            <div id="roomsize-range" class="slider"></div>
+                        </div>
+                        <div class="price-range-wrap sm-width">
+                            <div class="price-text">
+                                <label for="priceRange">Fiyat:</label>
+                                <input type="text" id="priceRange" readonly name="Fiyat">
+                            </div>
+                            <div id="price-range" class="slider"></div>
+                        </div>
+                        <input type="hidden" name="Kiralik" value="true" id="kiralik" />
+                    </div>
+                </div>
+                <button type="submit" class="search-btn sm-width">Ara</button>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Search Section End -->
+<!-- Property Section Begin -->
+<section class="property-section latest-property-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-title">
+                    <h4>Son İlankar</h4>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="property-controls">
+                    <ul>
+                        <li data-filter="all">Hepsi</li>
+                        <li data-filter=".apart">Konut</li>
+                        <li data-filter=".house">Ticari</li>
+                        <li data-filter=".office">Sanayi</li>
+                        <li data-filter=".hotel">Arazi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row property-filter">
+
+            @foreach (var item in Model.Emlaklar)
+            {
+                <div class="col-lg-4 col-md-6 mix Hepsi @item.EmlakTuru">
+                    <div class="property-item">
+                        <div class="pi-pic set-bg" data-setbg="@item.Resimler.FirstOrDefault()">
+                            @{
+                                if (item.Kiralik)
+                                {
+                                    <div class="label">Kiralık</div>
+                                }
+                                else
+                                {
+                                    <div class="label">Satılık</div>
+                                }
+                            }
+                        </div>
+                        <div class="pi-text">
+                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                            <div class="pt-price">$ @item.Fiyat</div>
+                            <h5><a href="#">@item.AdresIl @item.AdresIlce</a></h5>
+                            <p><span class="icon_pin_alt"></span> @item.AdresDetay</p>
+                            <ul>
+                                <li><i class="fa fa-object-group"></i> @item.MetreKare</li>
+                                <li><i class="fa fa-bathtub"></i> 03</li>
+                                <li><i class="fa fa-bed"></i> @item.OdaSayisi</li>
+                                <li><i class="fa fa-automobile"></i> 01</li>
+                            </ul>
+                            <div class="pi-agent">
+                                <div class="pa-item">
+                                    <div class="pa-info">
+
+                                        <h6>@item.IlanSahibiAdi @item.IlanSahibiSoyadi</h6>
+                                    </div>
+                                    <div class="pa-text">
+                                        @item.IlanSahibiTelefonu
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
