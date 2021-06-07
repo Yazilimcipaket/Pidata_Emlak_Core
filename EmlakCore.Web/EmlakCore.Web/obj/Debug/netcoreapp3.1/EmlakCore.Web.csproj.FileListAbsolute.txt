@@ -154,3 +154,4 @@ E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Web\EmlakCore.Web\obj
 E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Web\EmlakCore.Web\obj\Debug\netcoreapp3.1\Razor\Views\Admin\KayitOl.cshtml.g.cs
 E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Web\EmlakCore.Web\obj\Debug\netcoreapp3.1\Razor\Views\Kullanici\GirisYap.cshtml.g.cs
 E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Web\EmlakCore.Web\obj\Debug\netcoreapp3.1\Razor\Views\Musteri\Kayitol.cshtml.g.cs
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Web\EmlakCore.Web\obj\Debug\netcoreapp3.1\Razor\Views\Kullanici\Red.cshtml.g.cs

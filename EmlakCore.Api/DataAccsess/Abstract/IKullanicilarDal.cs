@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Abstract
 {
-    public interface IKullanicilarDal:IEntityRepository<TblKullaniciler>
+    public interface IKullanicilarDal:IEntityRepository<Kullaniciler>
     {
     }
 }

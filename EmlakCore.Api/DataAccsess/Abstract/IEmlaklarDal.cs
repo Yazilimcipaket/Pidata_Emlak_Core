@@ -7,7 +7,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Abstract
 {
-    public interface IEmlaklarDal : IEntityRepository<TblEmlaklar>
+    public interface IEmlaklarDal : IEntityRepository<Emlak>
     {
         
     }

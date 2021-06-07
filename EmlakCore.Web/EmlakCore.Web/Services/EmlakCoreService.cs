@@ -19,8 +19,9 @@ namespace EmlakCore.Web.Services
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        //https://localhost:44345/api
-        private string BaseAdres= "https://localhost:44345/api/";
+        //https://localhost:44345/api/
+        private string BaseAdres= "https://emlakcoreapi.paketpatron.com/api/";
+        //https://emlakcoreapi.paketpatron.com/api/
 
         public HttpResponseMessage Get(string adres)
         {

@@ -1,0 +1,9 @@
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\bin\Release\netcoreapp3.1\EmlakCore.Core.deps.json
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\bin\Release\netcoreapp3.1\EmlakCore.Core.dll
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\bin\Release\netcoreapp3.1\EmlakCore.Core.pdb
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\obj\Release\netcoreapp3.1\EmlakCore.Core.csproj.AssemblyReference.cache
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\obj\Release\netcoreapp3.1\EmlakCore.Core.AssemblyInfoInputs.cache
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\obj\Release\netcoreapp3.1\EmlakCore.Core.AssemblyInfo.cs
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\obj\Release\netcoreapp3.1\EmlakCore.Core.csproj.CoreCompileInputs.cache
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\obj\Release\netcoreapp3.1\EmlakCore.Core.dll
+E:\Toplu\uygulamalar\.NetCore\Projeler\EmlakCore\EmlakCore.Api\EmlakCore.Core\obj\Release\netcoreapp3.1\EmlakCore.Core.pdb

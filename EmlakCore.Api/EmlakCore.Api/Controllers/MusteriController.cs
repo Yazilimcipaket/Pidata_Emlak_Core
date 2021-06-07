@@ -27,8 +27,8 @@ namespace EmlakCore.Api.Controllers
         public IActionResult Get()
         {
             string KullaniciNo = User.Claims.FirstOrDefault(x => x.Type == "KullaniciNo").Value;
-            TblMusteriler musteri = _musteriService.Get(KullaniciNo);
-            TblKullaniciler kullanici = _kullaniciService.Get(KullaniciNo);
+            Musteriler musteri = _musteriService.Get(KullaniciNo);
+            Kullaniciler kullanici = _kullaniciService.Get(KullaniciNo);
             if (musteri != null & kullanici != null)
             {
                 return Ok(new MusteriDto
@@ -45,7 +45,7 @@ namespace EmlakCore.Api.Controllers
         public IActionResult EmlakEkle(MusteriEmlakEkleResource resource)
         {
             resource.KullaniciNo = User.Claims.FirstOrDefault(x => x.Type == "KullaniciNo").Value;
-            TblEmlaklar emlak = _musteriService.EmlakEkle(resource);
+            Emlak emlak = _musteriService.EmlakEkle(resource);
             if (emlak != null)
             {
                 return Ok(emlak);

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Asus\OneDrive\Masaüstü\PaketPatronFileZilla</_PublishTargetUrl>
+    <History>True|2021-06-07T13:07:15.2121815Z;True|2021-06-07T16:02:31.4163372+03:00;True|2021-06-07T15:54:07.3285966+03:00;True|2021-06-07T15:34:36.3480423+03:00;True|2021-06-07T15:17:55.9243778+03:00;True|2021-06-07T15:15:37.7803502+03:00;True|2021-06-07T15:10:51.8298925+03:00;True|2021-06-07T15:02:44.4647460+03:00;True|2021-06-07T14:08:42.5369481+03:00;True|2021-06-07T14:02:39.3968177+03:00;True|2021-06-07T13:51:57.7332294+03:00;</History>
+  </PropertyGroup>
+</Project>

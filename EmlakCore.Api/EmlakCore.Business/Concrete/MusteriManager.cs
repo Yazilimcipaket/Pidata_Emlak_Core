@@ -51,18 +51,18 @@ namespace EmlakCore.Business.Concrete
             _emlakTurleriDal = emlakTurleriDal;
         }
 
-        public TblEmlaklar EmlakEkle(MusteriEmlakEkleResource resource)
+        public Emlak EmlakEkle(MusteriEmlakEkleResource resource)
         {
-            TblAdresler adres = _mapper.Map<TblAdresler>(resource);
+            Adres adres = _mapper.Map<Adres>(resource);
             _adreslerDal.Add(adres);
-            TblKullaniciler kullanici = _kullanicilarDal.Get(x => x.KullaniciNo == resource.KullaniciNo);
-            TblEmlaklar emlak = _mapper.Map<TblEmlaklar>(resource);
+            Kullaniciler kullanici = _kullanicilarDal.Get(x => x.KullaniciNo == resource.KullaniciNo);
+            Emlak emlak = _mapper.Map<Emlak>(resource);
             emlak.Adres = adres.AdresID;
             emlak.Sahibi = kullanici.KullaniciID;
             _emlaklarDal.Add(emlak);
             if (resource.Tip == "Kiralık")
             {
-                _kiralikEmlaklarDal.Add(new TblKiralikEmlaklar
+                _kiralikEmlaklarDal.Add(new KiralikEmlaklar
                 {
                     KiralikEmlakID = emlak.EmlakID,
                     Ucret = resource.Fiyat
@@ -70,7 +70,7 @@ namespace EmlakCore.Business.Concrete
             }
             else if (resource.Tip == "Satılık")
             {
-                _satilikEmlaklarDal.Add(new TblSatilikEmlaklar
+                _satilikEmlaklarDal.Add(new SatilikEmlaklar
                 {
                     SatilikEmlakID = emlak.EmlakID,
                     Ucret = resource.Fiyat
@@ -81,18 +81,18 @@ namespace EmlakCore.Business.Concrete
             return emlak;
         }
 
-        public TblMusteriler Get(string KullaniciNo)
+        public Musteriler Get(string KullaniciNo)
         {
-            TblKullaniciler kullanici = _kullanicilarDal.Get(x => x.KullaniciNo == KullaniciNo);
+            Kullaniciler kullanici = _kullanicilarDal.Get(x => x.KullaniciNo == KullaniciNo);
             return _musterilerDal.Get(x => x.MusteriID == kullanici.KullaniciID);
         }
 
-        public TblMusteriler KayitOl(MusteriKayitOlResource resource)
+        public Musteriler KayitOl(MusteriKayitOlResource resource)
         {
-            TblKullaniciler kullanici = _mapper.Map<TblKullaniciler>(resource);
+            Kullaniciler kullanici = _mapper.Map<Kullaniciler>(resource);
             kullanici.KullaniciNo = Araclar.MusteriNoUret(7);
             _kullanicilarDal.Add(kullanici);
-            TblMusteriler musteriler = _mapper.Map<TblMusteriler>(resource);
+            Musteriler musteriler = _mapper.Map<Musteriler>(resource);
             musteriler.MusteriID = kullanici.KullaniciID;
             _musterilerDal.Add(musteriler);
             return musteriler;
@@ -111,14 +111,14 @@ namespace EmlakCore.Business.Concrete
             }
             string url = uploadResult.Url.ToString();
             string publicID = uploadResult.PublicId;
-            TblResimler tblResimler = new TblResimler
+            Resimler tblResimler = new Resimler
             {
                 PublicID = publicID,
                 ResimYol = url
             };
             _resimlerDal.Add(tblResimler);
             _emlakResimleriDal.Add(
-                new TblEmlakResimleri
+                new EmlakResimleri
                 {
                     EmlakID = EmlakID,
                     ResimID = tblResimler.ResimID
@@ -129,17 +129,17 @@ namespace EmlakCore.Business.Concrete
         public List<EmlaklarDto> Emlaklarım(string KullaniciNo)
         {
             List<EmlaklarDto> dtos = new List<EmlaklarDto>();
-            TblKullaniciler kullanici = _kullanicilarDal.Get(x => x.KullaniciNo == KullaniciNo);
-            List<TblEmlaklar> emlaklar = _emlaklarDal.GetList(x => x.Sahibi == kullanici.KullaniciID);
-            foreach (TblEmlaklar emlak in emlaklar)
+            Kullaniciler kullanici = _kullanicilarDal.Get(x => x.KullaniciNo == KullaniciNo);
+            List<Emlak> emlaklar = _emlaklarDal.GetList(x => x.Sahibi == kullanici.KullaniciID);
+            foreach (Emlak emlak in emlaklar)
             {
-                TblAdresler adres = _adreslerDal.Get(x => x.AdresID == emlak.Adres);
-                TblEmlakTurleri emlakTurleri = _emlakTurleriDal.Get(x => x.EmlakTurID == emlak.EmlakTuru);
-                TblMusteriler musteri = _musterilerDal.Get(x => x.MusteriID == emlak.Sahibi);
+                Adres adres = _adreslerDal.Get(x => x.AdresID == emlak.Adres);
+                EmlakTurleri emlakTurleri = _emlakTurleriDal.Get(x => x.EmlakTurID == emlak.EmlakTuru);
+                Musteriler musteri = _musterilerDal.Get(x => x.MusteriID == emlak.Sahibi);
                 decimal fiyat = 0;
                 bool kiralik = true;
-                TblKiralikEmlaklar kiralikEmlak = _kiralikEmlaklarDal.Get(x => x.KiralikEmlakID == emlak.EmlakID);
-                TblSatilikEmlaklar satilikEmlak = _satilikEmlaklarDal.Get(x => x.SatilikEmlakID == emlak.EmlakID);
+                KiralikEmlaklar kiralikEmlak = _kiralikEmlaklarDal.Get(x => x.KiralikEmlakID == emlak.EmlakID);
+                SatilikEmlaklar satilikEmlak = _satilikEmlaklarDal.Get(x => x.SatilikEmlakID == emlak.EmlakID);
                 if (kiralikEmlak != null)
                     fiyat = kiralikEmlak.Ucret;
                 else
@@ -163,7 +163,7 @@ namespace EmlakCore.Business.Concrete
                     Kiralik = kiralik,
                     Fiyat = fiyat
                 };
-                foreach (TblEmlakResimleri emlakResim in _emlakResimleriDal.GetList(x => x.EmlakID == emlak.EmlakID))
+                foreach (EmlakResimleri emlakResim in _emlakResimleriDal.GetList(x => x.EmlakID == emlak.EmlakID))
                 {
                     dto.Resimler.Add(_resimlerDal.Get(x => x.ResimID == emlakResim.ResimID).ResimYol);
                 }

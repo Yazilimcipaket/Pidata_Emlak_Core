@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Abstract
 {
-   public interface IResimlerDal:IEntityRepository<TblResimler>
+   public interface IResimlerDal:IEntityRepository<Resimler>
     {
     }
 }

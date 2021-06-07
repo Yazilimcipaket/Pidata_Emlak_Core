@@ -18,5 +18,7 @@
     <ProjectReference Include="..\EmlakCore.Entities\EmlakCore.Entities.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 
 </Project>

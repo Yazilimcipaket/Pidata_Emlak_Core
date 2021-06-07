@@ -33,7 +33,7 @@ namespace EmlakCore.Api.Controllers
         [HttpPost]
         public IActionResult GirisYap(KullaniciGirisYapResource resource)
         {
-            TblKullaniciler kullanici = _kullaniciService.GirisYap(resource);
+            Kullaniciler kullanici = _kullaniciService.GirisYap(resource);
             if (kullanici == null)
                 return BadRequest();
             AccessToken accessToken = _tokenHandler.CreateAccessToken(kullanici);
@@ -43,14 +43,11 @@ namespace EmlakCore.Api.Controllers
             AccessTokenDto dto = _mapper.Map<AccessTokenDto>(accessToken);
             return Ok(dto);
         }
-        public IActionResult Default()
-        {
-            return Ok();
-        }
+      
         [HttpPost]
         public IActionResult Kayitol(MusteriKayitOlResource resource)
         {
-            TblMusteriler musteri = _musteriService.KayitOl(resource);
+            Musteriler musteri = _musteriService.KayitOl(resource);
             if (musteri == null)
                 return BadRequest();
             return Ok();

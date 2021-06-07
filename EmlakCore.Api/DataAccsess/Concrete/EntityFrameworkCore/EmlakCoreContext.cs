@@ -10,26 +10,27 @@ namespace EmlakCore.DataAccsess.Concrete.EntityFrameworkCore
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           
-            optionsBuilder.UseSqlServer("data source=DESKTOP-K1HIF0J\\SQLEXPRESS;initial catalog=EmlakCore;integrated security=True;");
+
+            optionsBuilder.UseSqlServer(@"workstation id=paketpatron.com;packet size=4096;user id=paketpat_Emlak;pwd=g8Hd9Aw3E;" +
+                    "data source=paketpatron.com;persist security info=False;initial catalog=paketpat_Emlak;MultipleActiveResultSets=True");
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TblEmlakResimleri>()
+            modelBuilder.Entity<EmlakResimleri>()
                .HasKey(c => new { c.EmlakID, c.ResimID });
         }
-        public DbSet<TblKullaniciler> TblKullaniciler { get; set; }
-        public DbSet<TblMusteriler> TblMusteriler { get; set; }
-        public DbSet<TblIsyeri> TblIsyeri { get; set; }
-        public DbSet<TblKiralikEmlaklar> TblKiralikEmlaklar { get; set; }
-        public DbSet<TblSatilikEmlaklar> TblSatilikEmlaklar { get; set; }
-        public DbSet<TblYetkililer> TblYetkililer { get; set; }
-        public DbSet<TblAdresler> TblAdresler { get; set; }
-        public DbSet<TblEmlakTurleri> TblEmlakTurleri { get; set; }
-        public DbSet<TblEmlaklar> TblEmlaklar { get; set; }
-        public DbSet<TblEmlakResimleri> TblEmlakResimleri { get; set; }
-        public DbSet<TblResimler> TblResimler { get; set; }
+        public DbSet<Kullaniciler> TblKullaniciler { get; set; }
+        public DbSet<Musteriler> TblMusteriler { get; set; }
+        public DbSet<Isyeri> TblIsyeri { get; set; }
+        public DbSet<KiralikEmlaklar> TblKiralikEmlaklar { get; set; }
+        public DbSet<SatilikEmlaklar> TblSatilikEmlaklar { get; set; }
+        public DbSet<Yetkililer> TblYetkililer { get; set; }
+        public DbSet<Adres> TblAdresler { get; set; }
+        public DbSet<EmlakTurleri> TblEmlakTurleri { get; set; }
+        public DbSet<Emlak> TblEmlaklar { get; set; }
+        public DbSet<EmlakResimleri> TblEmlakResimleri { get; set; }
+        public DbSet<Resimler> TblResimler { get; set; }
 
     }
 }

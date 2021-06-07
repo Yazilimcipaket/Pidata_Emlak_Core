@@ -75,14 +75,7 @@ namespace EmlakCore.Api
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
+           
             app.UseAuthentication();
             app.UseRouting();
             app.UseAuthorization();
@@ -90,6 +83,7 @@ namespace EmlakCore.Api
             {
                 endpoints.MapControllers();
             });
+            app.UseCors(x => x.AllowAnyMethod());
         }
 
     }

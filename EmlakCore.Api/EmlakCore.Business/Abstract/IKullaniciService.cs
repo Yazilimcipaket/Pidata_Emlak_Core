@@ -8,9 +8,9 @@ namespace EmlakCore.Business.Abstract
 {
    public interface IKullaniciService
     {
-        TblKullaniciler GirisYap(KullaniciGirisYapResource resource);
+        Kullaniciler GirisYap(KullaniciGirisYapResource resource);
      
-        void Duzenle(TblKullaniciler tblKullaniciler);
-        TblKullaniciler Get(string KullaniciNo);
+        void Duzenle(Kullaniciler tblKullaniciler);
+        Kullaniciler Get(string KullaniciNo);
     }
 }

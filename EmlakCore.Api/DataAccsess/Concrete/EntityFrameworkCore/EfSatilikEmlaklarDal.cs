@@ -7,7 +7,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Concrete.EntityFrameworkCore
 {
-  public  class EfSatilikEmlaklarDal: EfEntityRepositoryBase<TblSatilikEmlaklar, EmlakCoreContext>,ISatilikEmlaklarDal
+  public  class EfSatilikEmlaklarDal: EfEntityRepositoryBase<SatilikEmlaklar, EmlakCoreContext>,ISatilikEmlaklarDal
     {
     }
 }

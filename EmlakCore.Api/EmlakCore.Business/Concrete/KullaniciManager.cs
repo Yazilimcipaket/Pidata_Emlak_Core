@@ -16,17 +16,17 @@ namespace EmlakCore.Business.Concrete
             _kullanicilarDal = kullanicilarDal;
         }
 
-        public void Duzenle(TblKullaniciler tblKullaniciler)
+        public void Duzenle(Kullaniciler tblKullaniciler)
         {
             _kullanicilarDal.Update(tblKullaniciler);
         }
 
-        public TblKullaniciler Get(string KullaniciNo)
+        public Kullaniciler Get(string KullaniciNo)
         {
             return _kullanicilarDal.Get(x => x.KullaniciNo == KullaniciNo);
         }
 
-        public TblKullaniciler GirisYap(KullaniciGirisYapResource resource)
+        public Kullaniciler GirisYap(KullaniciGirisYapResource resource)
         {
             return _kullanicilarDal.Get(x => x.Eposta == resource.Eposta && x.Sifre == resource.Sifre);
         }

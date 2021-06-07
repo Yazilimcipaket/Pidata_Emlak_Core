@@ -21,7 +21,7 @@ namespace EmlakCore.Api.Security.Token
             _kullaniciService = kullaniciService;
             this.tokenOptions = tokenOptions.Value;
         }
-        public AccessToken CreateAccessToken(TblKullaniciler kullanici)
+        public AccessToken CreateAccessToken(Kullaniciler kullanici)
         {
             var accessTokenExpiration = DateTime.Now.AddDays(tokenOptions.AccessTokenExpiration);
             var refrehTokenExpiration = DateTime.Now.AddDays(tokenOptions.RefreshTokenExpiration);
@@ -52,7 +52,7 @@ namespace EmlakCore.Api.Security.Token
                 return Convert.ToBase64String(numberByte);
             }
         }
-        private IEnumerable<Claim> GetClaims(TblKullaniciler kullanici)
+        private IEnumerable<Claim> GetClaims(Kullaniciler kullanici)
         {
 
             string role = "";
@@ -71,7 +71,7 @@ namespace EmlakCore.Api.Security.Token
             };
             return claims;
         }
-        public void RemoveRefreshToken(TblKullaniciler kullanici)
+        public void RemoveRefreshToken(Kullaniciler kullanici)
         {
             throw new NotImplementedException();
         }

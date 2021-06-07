@@ -14,20 +14,20 @@ namespace EmlakCore.Api.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<MusteriKayitOlResource, TblKullaniciler>();
-            CreateMap<MusteriKayitOlResource, TblMusteriler>();
+            CreateMap<MusteriKayitOlResource, Kullaniciler>();
+            CreateMap<MusteriKayitOlResource, Musteriler>();
             CreateMap<AccessToken, AccessTokenDto>();
-            CreateMap<MusteriEmlakEkleResource, TblAdresler>()
+            CreateMap<MusteriEmlakEkleResource, Adres>()
                .ForMember(x => x.Il, y => y.MapFrom(z => z.AdresIl))
                .ForMember(x => x.Ilce, y => y.MapFrom(z => z.AdresIlce));
-            CreateMap<MusteriEmlakEkleResource, TblEmlaklar>();
-            CreateMap<YetkiliKayitResource, TblKullaniciler>();
-            CreateMap<YetkiliKayitResource, TblIsyeri>();
-            CreateMap<YetkiliKayitResource, TblAdresler>()
+            CreateMap<MusteriEmlakEkleResource, Emlak>();
+            CreateMap<YetkiliKayitResource, Kullaniciler>();
+            CreateMap<YetkiliKayitResource, Isyeri>();
+            CreateMap<YetkiliKayitResource, Adres>()
                 .ForMember(x => x.Il, y => y.MapFrom(z => z.AdresIl))
                 .ForMember(x => x.Ilce, y => y.MapFrom(z => z.AdresIlce))
                 .ForMember(x => x.AdresDetay, y => y.MapFrom(z => z.AdresDetay));
-            CreateMap<YetkiliKayitResource, TblYetkililer>();
+            CreateMap<YetkiliKayitResource, Yetkililer>();
 
         }
     }

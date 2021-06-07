@@ -50,6 +50,7 @@ namespace EmlakCore.Web
                  .AddCookie(options =>
                  {
                      options.LoginPath = "/Kullanici/GirisYap";
+                     options.AccessDeniedPath = "/Kullanici/Red";
                      options.Cookie = new CookieBuilder
                      {
                          Name = "EmlakCoreMwc",
@@ -69,12 +70,14 @@ namespace EmlakCore.Web
             app.UseRouting();
             app.UseAuthorization();
             app.UseStaticFiles();
+       
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=AnaSayfa}/{action=Index}/{id?}");
             });
+            app.UseCors(x => x.AllowAnyMethod());
         }
     }
 }

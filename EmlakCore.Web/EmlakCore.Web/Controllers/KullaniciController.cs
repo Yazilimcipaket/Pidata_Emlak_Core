@@ -72,5 +72,9 @@ namespace EmlakCore.Web.Controllers
                 else return RedirectToAction("Index", "AnaSayfa");
             }
         }
+        public IActionResult Red()
+        {
+            return View();
+        }
     }
 }

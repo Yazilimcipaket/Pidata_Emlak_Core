@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Abstract
 {
-   public interface IIsyeriDal:IEntityRepository<TblIsyeri>
+   public interface IIsyeriDal:IEntityRepository<Isyeri>
     {
     }
 }

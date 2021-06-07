@@ -36,17 +36,17 @@ namespace EmlakCore.Business.Concrete
 
         public List<EmlaklarDto> GetAllEmlak()
         {
-            List<TblEmlaklar> emlaklar = _emlaklarDal.GetList();
+            List<Emlak> emlaklar = _emlaklarDal.GetList();
             List<EmlaklarDto> dtos = new List<EmlaklarDto>();
-            foreach (TblEmlaklar emlak in emlaklar)
+            foreach (Emlak emlak in emlaklar)
             {
-                TblAdresler adres = _adreslerDal.Get(x => x.AdresID == emlak.Adres);
-                TblEmlakTurleri emlakTurleri = _emlakTurleriDal.Get(x => x.EmlakTurID == emlak.EmlakTuru);
-                TblMusteriler musteri = _musterilerDal.Get(x => x.MusteriID == emlak.Sahibi);
+                Adres adres = _adreslerDal.Get(x => x.AdresID == emlak.Adres);
+                EmlakTurleri emlakTurleri = _emlakTurleriDal.Get(x => x.EmlakTurID == emlak.EmlakTuru);
+                Musteriler musteri = _musterilerDal.Get(x => x.MusteriID == emlak.Sahibi);
                 decimal fiyat = 0;
                 bool kiralik = true;
-                TblKiralikEmlaklar kiralikEmlak = _kiralikEmlaklarDal.Get(x => x.KiralikEmlakID == emlak.EmlakID);
-                TblSatilikEmlaklar satilikEmlak = _satilikEmlaklarDal.Get(x => x.SatilikEmlakID == emlak.EmlakID);
+                KiralikEmlaklar kiralikEmlak = _kiralikEmlaklarDal.Get(x => x.KiralikEmlakID == emlak.EmlakID);
+                SatilikEmlaklar satilikEmlak = _satilikEmlaklarDal.Get(x => x.SatilikEmlakID == emlak.EmlakID);
                 if (kiralikEmlak != null)
                     fiyat = kiralikEmlak.Ucret;
                 else
@@ -70,7 +70,7 @@ namespace EmlakCore.Business.Concrete
                     Kiralik = kiralik,
                     Fiyat = fiyat
                 };
-                foreach (TblEmlakResimleri emlakResim in _emlakResimleriDal.GetList(x => x.EmlakID == emlak.EmlakID))
+                foreach (EmlakResimleri emlakResim in _emlakResimleriDal.GetList(x => x.EmlakID == emlak.EmlakID))
                 {
                     dto.Resimler.Add(_resimlerDal.Get(x => x.ResimID == emlakResim.ResimID).ResimYol);
                 }
@@ -79,7 +79,7 @@ namespace EmlakCore.Business.Concrete
             return dtos;
         }
 
-        public List<TblEmlakTurleri> GetAllEmlakTur()
+        public List<EmlakTurleri> GetAllEmlakTur()
         {
             return _emlakTurleriDal.GetList();
         }
@@ -96,7 +96,7 @@ namespace EmlakCore.Business.Concrete
                 emlaklarID = _satilikEmlaklarDal.GetList(
                     x => x.Ucret > resource.AltFiyat & x.Ucret < resource.UstFiyat)
                     .Select(x => x.SatilikEmlakID).ToList();
-            List<TblAdresler> adresler = new List<TblAdresler>();
+            List<Adres> adresler = new List<Adres>();
             if (resource.Ilce != null)
                 adresler = _adreslerDal.GetList(x => x.Ilce == resource.Ilce);
             else if (resource.Il != null)
@@ -104,18 +104,18 @@ namespace EmlakCore.Business.Concrete
 
             foreach (int emlakID in emlaklarID)
             {
-                TblEmlaklar emlak = _emlaklarDal.Get(x => x.EmlakID == emlakID);
-                TblAdresler adres = _adreslerDal.Get(x => x.AdresID == emlak.Adres);
+                Emlak emlak = _emlaklarDal.Get(x => x.EmlakID == emlakID);
+                Adres adres = _adreslerDal.Get(x => x.AdresID == emlak.Adres);
                 if (adresler.FirstOrDefault(x => x.AdresID == adres.AdresID) == null)
                     continue;
-                TblMusteriler musteri = _musterilerDal.Get(x => x.MusteriID == emlak.Sahibi);
-                TblEmlakTurleri emlakTuru = _emlakTurleriDal.Get(x => x.EmlakTurID == emlak.EmlakTuru);
+                Musteriler musteri = _musterilerDal.Get(x => x.MusteriID == emlak.Sahibi);
+                EmlakTurleri emlakTuru = _emlakTurleriDal.Get(x => x.EmlakTurID == emlak.EmlakTuru);
                 int resimID = _emlakResimleriDal.Get(x => x.EmlakID == emlak.EmlakID).ResimID;
                 string resimYol = _resimlerDal.Get(x => x.ResimID == resimID).ResimYol;
                 decimal fiyat = 00;
                 bool kiralik = true;
-                TblKiralikEmlaklar kiralikEmlak = _kiralikEmlaklarDal.Get(x => x.KiralikEmlakID == emlak.EmlakID);
-                TblSatilikEmlaklar satilikEmlak = _satilikEmlaklarDal.Get(x => x.SatilikEmlakID == emlak.EmlakID);
+                KiralikEmlaklar kiralikEmlak = _kiralikEmlaklarDal.Get(x => x.KiralikEmlakID == emlak.EmlakID);
+                SatilikEmlaklar satilikEmlak = _satilikEmlaklarDal.Get(x => x.SatilikEmlakID == emlak.EmlakID);
                 if (kiralikEmlak != null)
                     fiyat = kiralikEmlak.Ucret;
                 else

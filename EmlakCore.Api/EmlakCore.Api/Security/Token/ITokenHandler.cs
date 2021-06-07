@@ -8,7 +8,7 @@ namespace EmlakCore.Api.Security.Token
 {
     public interface ITokenHandler
     {
-        AccessToken CreateAccessToken(TblKullaniciler kullanici);
-        void RemoveRefreshToken(TblKullaniciler kullanici);
+        AccessToken CreateAccessToken(Kullaniciler kullanici);
+        void RemoveRefreshToken(Kullaniciler kullanici);
     }
 }

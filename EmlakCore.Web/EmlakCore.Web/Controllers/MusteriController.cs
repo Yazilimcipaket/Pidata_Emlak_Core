@@ -125,8 +125,8 @@ namespace EmlakCore.Web.Controllers
             HttpResponseMessage kayitOlMessage = _service.Post("Kullanici/KayitOl", model);
             if (kayitOlMessage.IsSuccessStatusCode)
             {
-                TempData.Add("Mesaj", "Kayıt Başarılı");
-                return RedirectToAction("GirisYap");
+                //TempData.Add("Mesaj", "Kayıt Başarılı");
+                return RedirectToAction("GirisYap","Kullanici");
             }
             TempData.Add("Mesaj", "Hata!");
             return View();

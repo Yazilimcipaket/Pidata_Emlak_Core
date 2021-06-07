@@ -29,10 +29,10 @@ namespace EmlakCore.Business.Concrete
 
         public YetkiliProfilDto GetYetkiliProfil(string kullaniciNo)
         {
-            TblKullaniciler kullanici = _kullanicilarDal.Get(x => x.KullaniciNo == kullaniciNo);
-            TblYetkililer yetkili = _yetkililerDal.Get(x => x.YetkiliID == kullanici.KullaniciID);
-            TblIsyeri isyeri = _ısyeriDal.Get(x => x.Yetkili == yetkili.YetkiliID);
-            TblAdresler adres = _adreslerDal.Get(x => x.AdresID == isyeri.AdresID);
+            Kullaniciler kullanici = _kullanicilarDal.Get(x => x.KullaniciNo == kullaniciNo);
+            Yetkililer yetkili = _yetkililerDal.Get(x => x.YetkiliID == kullanici.KullaniciID);
+            Isyeri isyeri = _ısyeriDal.Get(x => x.Yetkili == yetkili.YetkiliID);
+            Adres adres = _adreslerDal.Get(x => x.AdresID == isyeri.AdresID);
             return new YetkiliProfilDto
             {
                 IsyeriAdi = isyeri.IsyeriAdi,
@@ -49,15 +49,15 @@ namespace EmlakCore.Business.Concrete
 
         public bool KayitOl(YetkiliKayitResource resource)
         {
-            TblKullaniciler kullanici = _mapper.Map<TblKullaniciler>(resource);
+            Kullaniciler kullanici = _mapper.Map<Kullaniciler>(resource);
             kullanici.KullaniciNo = Araclar.MusteriNoUret(3);
             _kullanicilarDal.Add(kullanici);
-            TblIsyeri Isyeri = _mapper.Map<TblIsyeri>(resource);
-            TblAdresler adres = _mapper.Map<TblAdresler>(resource);
+            Isyeri Isyeri = _mapper.Map<Isyeri>(resource);
+            Adres adres = _mapper.Map<Adres>(resource);
             _adreslerDal.Add(adres);
             Isyeri.AdresID = adres.AdresID;
             Isyeri.Yetkili = kullanici.KullaniciID;
-            TblYetkililer yetkili = _mapper.Map<TblYetkililer>(resource);
+            Yetkililer yetkili = _mapper.Map<Yetkililer>(resource);
             yetkili.YetkiliID = kullanici.KullaniciID;
             _yetkililerDal.Add(yetkili);
             _ısyeriDal.Add(Isyeri);

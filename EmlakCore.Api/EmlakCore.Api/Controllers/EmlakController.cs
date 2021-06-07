@@ -28,6 +28,7 @@ namespace EmlakCore.Api.Controllers
         {
             return Ok(_emlakService.GetAllEmlak());
         }
+       
         [HttpPost]
         public IActionResult EmlakAra(EmlakAraResource resource)
         {

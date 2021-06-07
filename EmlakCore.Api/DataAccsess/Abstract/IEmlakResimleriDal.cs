@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Abstract
 {
-    public interface IEmlakResimleriDal: IEntityRepository<TblEmlakResimleri>
+    public interface IEmlakResimleriDal: IEntityRepository<EmlakResimleri>
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Abstract
 {
-    public interface ISatilikEmlaklarDal:IEntityRepository<TblSatilikEmlaklar>
+    public interface ISatilikEmlaklarDal:IEntityRepository<SatilikEmlaklar>
     {
     }
 }

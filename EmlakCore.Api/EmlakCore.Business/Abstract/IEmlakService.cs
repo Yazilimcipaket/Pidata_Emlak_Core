@@ -9,7 +9,7 @@ namespace EmlakCore.Business.Abstract
 {
    public interface IEmlakService
     {
-       List<TblEmlakTurleri> GetAllEmlakTur();
+       List<EmlakTurleri> GetAllEmlakTur();
         List<EmlaklarDto> GetAllEmlak();
         List<EmlaklarDto> EmlakAra(EmlakAraResource resource);
     }

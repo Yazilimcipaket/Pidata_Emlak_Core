@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Abstract
 {
-   public interface IAdreslerDal:IEntityRepository<TblAdresler>
+   public interface IAdreslerDal:IEntityRepository<Adres>
     {
     }
 }

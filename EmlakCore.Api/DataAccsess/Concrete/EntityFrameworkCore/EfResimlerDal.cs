@@ -7,7 +7,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Concrete.EntityFrameworkCore
 {
-   public class EfResimlerDal:EfEntityRepositoryBase<TblResimler,EmlakCoreContext>,IResimlerDal
+   public class EfResimlerDal:EfEntityRepositoryBase<Resimler,EmlakCoreContext>,IResimlerDal
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmlakCore.DataAccsess.Abstract
 {
-    public interface IYetkililerDal:IEntityRepository<TblYetkililer>
+    public interface IYetkililerDal:IEntityRepository<Yetkililer>
     {
     }
 }
